@@ -23,4 +23,4 @@ repo_name: "This-should-be-overridden-by-github-actions-script"
 repo: ucsb-cs156-s23/team02-s23-5pm-1
 owner: ucsb-cs156-s23
 repo_name: team02-s23-5pm-1
-pull_requests: [{"author":{"id":"MDQ6VXNlcjExMTkwMTc=","is_bot":false,"login":"pconrad","name":"Phill Conrad"},"headRefName":"pc-fix-docs-workflows","number":36,"title":"pc - fix docs workflows","url":"https://github.com/ucsb-cs156-s23/team02-s23-5pm-1/pull/36"},{"author":{"id":"MDQ6VXNlcjc3NDE3MDg3","is_bot":false,"login":"cmfisher606","name":""},"headRefName":"Chris-BookTable","number":35,"title":"cf - Book Class added to Table","url":"https://github.com/ucsb-cs156-s23/team02-s23-5pm-1/pull/35"}]
+pull_requests: [{"author":{"id":"MDQ6VXNlcjc3NDE3MDg3","is_bot":false,"login":"cmfisher606","name":""},"headRefName":"Chris-BookTable","number":35,"title":"cf - Book Class added to Table","url":"https://github.com/ucsb-cs156-s23/team02-s23-5pm-1/pull/35"}]
