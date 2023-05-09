@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-s23/team02-s23-5pm-1
 owner: ucsb-cs156-s23
 repo_name: team02-s23-5pm-1
-pull_requests: [{"author":{"id":"MDQ6VXNlcjU5NDU5MzE0","is_bot":false,"login":"EKF626","name":"Elijah"},"headRefName":"Elijah-StudentTable","number":38,"title":"ef - added Students Table","url":"https://github.com/ucsb-cs156-s23/team02-s23-5pm-1/pull/38"}]
+pull_requests: [{"author":{"id":"MDQ6VXNlcjU5Mjc3NDgy","is_bot":false,"login":"JamesEllenstein","name":"James Ellenstein"},"headRefName":"james-createCourseDbTable","number":39,"title":"ja- Finished issue 11 for courses?","url":"https://github.com/ucsb-cs156-s23/team02-s23-5pm-1/pull/39"},{"author":{"id":"MDQ6VXNlcjU5NDU5MzE0","is_bot":false,"login":"EKF626","name":"Elijah"},"headRefName":"Elijah-StudentTable","number":38,"title":"ef - added Students Table","url":"https://github.com/ucsb-cs156-s23/team02-s23-5pm-1/pull/38"}]
