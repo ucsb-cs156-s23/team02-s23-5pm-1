@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface StudentRepository extends CrudRepository<Student, String> {
+public interface StudentRepository extends CrudRepository<Student, Long> {
 
 }
