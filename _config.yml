@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-s23/team02-s23-5pm-1
 owner: ucsb-cs156-s23
 repo_name: team02-s23-5pm-1
-pull_requests: [{"author":{"id":"MDQ6VXNlcjU5Mjc3NDgy","is_bot":false,"login":"JamesEllenstein","name":"James Ellenstein"},"headRefName":"james-issue12Courses","number":45,"title":"je- finished issue 12 for Courses","url":"https://github.com/ucsb-cs156-s23/team02-s23-5pm-1/pull/45"},{"author":{"id":"MDQ6VXNlcjc3NDE3MDg3","is_bot":false,"login":"cmfisher606","name":""},"headRefName":"BookController","number":44,"title":"cf - Book backend is Complete","url":"https://github.com/ucsb-cs156-s23/team02-s23-5pm-1/pull/44"}]
+pull_requests: [{"author":{"id":"MDQ6VXNlcjU5Mjc3NDgy","is_bot":false,"login":"JamesEllenstein","name":"James Ellenstein"},"headRefName":"james-issue12Courses","number":45,"title":"je- finished issue 12 for Courses","url":"https://github.com/ucsb-cs156-s23/team02-s23-5pm-1/pull/45"}]
