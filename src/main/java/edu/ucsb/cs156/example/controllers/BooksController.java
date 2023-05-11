@@ -25,7 +25,7 @@ import javax.validation.Valid;
 
 
 @Api(description = "Books")
-@RequestMapping("/api/ucsbdates")
+@RequestMapping("/api/books")
 @RestController
 @Slf4j
 public class BooksController extends ApiController {
@@ -40,6 +40,17 @@ public class BooksController extends ApiController {
     public Iterable<Book> allBooks() {
         Iterable<Book> books = bookRepository.findAll();
         return books;
+    }
+
+    @ApiOperation(value = "Get a single book")
+    @PreAuthorize("hasRole('ROLE_USER')")
+    @GetMapping("")
+    public Book getById(
+            @ApiParam("id") @RequestParam Long id) {
+        Book book = bookRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException(Book.class, id));
+
+        return book;
     }
 
     // code for a POST /api/Book/post endpoint that can be used to create a new entry in the table. (This is a create action.)
@@ -75,4 +86,22 @@ public class BooksController extends ApiController {
         return genericMessage("Book with id %s deleted".formatted(id));
     }
 
+    @ApiOperation(value = "Update a single book")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PutMapping("")
+    public Book updateBook(
+            @ApiParam("id") @RequestParam Long id,
+            @RequestBody @Valid Book incoming) {
+
+        Book book = bookRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException(Book.class, id));
+
+        book.setTitle(incoming.getTitle());
+        book.setAuthor(incoming.getAuthor());
+        book.setDate(incoming.getDate());
+
+        bookRepository.save(book);
+
+        return book;
+    }
 }

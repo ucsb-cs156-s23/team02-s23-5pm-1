@@ -21,8 +21,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 
-import java.time.date;
-
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -179,7 +177,7 @@ public class BooksControllerTests extends ControllerTestCase {
 
                 // act
                 MvcResult response = mockMvc.perform(
-                                post("/api/books/post?name=Harry Potter&quarterYYYYQ=J.K. Rowling&localDateTime=2022-01-03T00:00:00")
+                                post("/api/books/post?title=Harry Potter&author=J.K. Rowling&date=1997")
                                                 .with(csrf()))
                                 .andExpect(status().isOk()).andReturn();
 
