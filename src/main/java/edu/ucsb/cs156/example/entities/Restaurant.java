@@ -1,3 +1,4 @@
+
 package edu.ucsb.cs156.example.entities;
 
 import lombok.Data;
@@ -18,10 +19,11 @@ import javax.persistence.GenerationType;
 public class Restaurant {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private long id;
-  
+  private Long id;
+
   private int phoneNumber;
   private String city;
   private String state;
 }
+
 
