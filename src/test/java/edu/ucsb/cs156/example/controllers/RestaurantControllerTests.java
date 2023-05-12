@@ -122,7 +122,7 @@ public class RestaurantControllerTests extends ControllerTestCase {
                 verify(restaurantRepository, times(1)).findById(eq(7L));
                 Map<String, Object> json = responseToJson(response);
                 assertEquals("EntityNotFoundException", json.get("type"));
-                assertEquals("Restaurant with id 7 not found", json.get("message"));
+                assertEquals("restaurant with id 7 not found", json.get("message"));
         }
 
         @WithMockUser(roles = { "USER" })
@@ -176,7 +176,9 @@ public class RestaurantControllerTests extends ControllerTestCase {
 
                 // act
                 MvcResult response = mockMvc.perform(
-                                post("/api/restaurants/post?phoneNumber=911&city=Goleta&state=CA").with(csrf())).andExpect(status().isOk()).andReturn();
+                                post("/api/restaurants/post?title=Harry Potter&author=J.K. Rowling&date=1997")
+                                                .with(csrf()))
+                                .andExpect(status().isOk()).andReturn();
 
                 // assert
                 verify(restaurantRepository, times(1)).save(restaurant1);
@@ -247,7 +249,7 @@ public class RestaurantControllerTests extends ControllerTestCase {
 
                 Restaurant restaurantEdited = Restaurant.builder()
                                 .phoneNumber(911)
-                                .city("Goleta")
+                                .city("Davis")
                                 .state("CA")
                                 .build();
 
@@ -303,5 +305,3 @@ public class RestaurantControllerTests extends ControllerTestCase {
 
         }
 }
-
-

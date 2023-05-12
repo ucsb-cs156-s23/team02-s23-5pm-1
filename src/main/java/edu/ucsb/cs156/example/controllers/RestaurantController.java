@@ -8,6 +8,8 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,7 +25,7 @@ import javax.validation.Valid;
 
 
 @Api(description = "Restaurants")
-@RequestMapping("/api/restaurants")
+@RequestMapping("/api/Restaurant")
 @RestController
 @Slf4j
 public class RestaurantController extends ApiController {
@@ -31,6 +33,7 @@ public class RestaurantController extends ApiController {
     @Autowired
     RestaurantRepository restaurantRepository;
 
+    // Code for a GET /api/Restaurant/all endpoint that returns a JSON list of all Restaurants in the database.
     @ApiOperation(value = "List all restaurants")
     @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping("/all")
@@ -39,45 +42,43 @@ public class RestaurantController extends ApiController {
         return restaurants;
     }
 
-    @ApiOperation(value = "Get a single stuent")
+    @ApiOperation(value = "Get a single restaurant")
     @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping("")
     public Restaurant getById(
-            @ApiParam("id") @RequestParam long id) {
+            @ApiParam("id") @RequestParam Long id) {
         Restaurant restaurant = restaurantRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(Restaurant.class, id));
 
         return restaurant;
     }
 
+    // code for a POST /api/Restaurant/post endpoint that can be used to create a new entry in the table. (This is a create action.)
     @ApiOperation(value = "Create a new restaurant")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/post")
     public Restaurant postRestaurant(
-        @ApiParam("id") @RequestParam long id,
-        @ApiParam("phoneNumber") @RequestParam int phoneNumber,
-        @ApiParam("city") @RequestParam String city,
-        @ApiParam("state") @RequestParam String state
-        )
-        {
+            @ApiParam("phoneNumber") @RequestParam Long phoneNumber,
+            @ApiParam("city") @RequestParam String city,
+            @ApiParam("state") @RequestParam String state)
+            throws JsonProcessingException {
+
 
         Restaurant restaurant = new Restaurant();
-        restaurant.setId(id);
-        restaurant.setPhoneNumber(phoneNumber);
+        restaurant.setphoneNumber(phoneNumber);
         restaurant.setCity(city);
         restaurant.setState(state);
-       
 
         Restaurant savedRestaurant = restaurantRepository.save(restaurant);
 
         return savedRestaurant;
     }
 
-    @ApiOperation(value = "Delete a restaurant")
+    @ApiOperation(value = "Delete a Restaurant")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("")
     public Object deleteRestaurant(
-            @ApiParam("id") @RequestParam long id) {
+            @ApiParam("id") @RequestParam Long id) {
         Restaurant restaurant = restaurantRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(Restaurant.class, id));
 
@@ -89,15 +90,13 @@ public class RestaurantController extends ApiController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping("")
     public Restaurant updateRestaurant(
-            @ApiParam("id") @RequestParam long id,
+            @ApiParam("id") @RequestParam Long id,
             @RequestBody @Valid Restaurant incoming) {
 
         Restaurant restaurant = restaurantRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(Restaurant.class, id));
 
-
-        restaurant.setId(incoming.getId());
-        restaurant.setPhoneNumber(incoming.getPhoneNumber());
+        restaurant.setphoneNumber(incoming.getphoneNumber());
         restaurant.setCity(incoming.getCity());
         restaurant.setState(incoming.getState());
 
@@ -106,4 +105,3 @@ public class RestaurantController extends ApiController {
         return restaurant;
     }
 }
-
