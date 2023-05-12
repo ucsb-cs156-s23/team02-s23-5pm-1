@@ -12,13 +12,14 @@ import javax.persistence.GenerationType;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @Builder
 @Entity(name = "restaurants")
 public class Restaurant {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
+  
   private int phoneNumber;
   private String city;
   private String state;
